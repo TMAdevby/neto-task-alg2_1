@@ -14,8 +14,8 @@ public class Main {
         System.out.println("=== Day " + day + " ===");
         int[] startNumbers = {21, 1, 20, 23};
         int iterative = chooseHobbyIterative(startNumbers, day);
-        int[] memory = new int[day];
-        int recursive = chooseHobbyRecursive(startNumbers, day, memory);
+        int[] memory = new int[day + 4];
+        int recursive = chooseHobbyRecursive(startNumbers, day + 4, memory);
         System.out.println("Iterative = " + iterative + " | Recursive = " + recursive);
         System.out.println();
     }
