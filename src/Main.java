@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         compare(1);
         compare(2);
@@ -23,24 +23,24 @@ public class Main {
 
     public static int chooseHobbyRecursive(int[] startNumbers, int day, int[] memory) {
 
-            if (memory[day - 1] != 0) {
-                return memory[day - 1];
-            }
+        if (memory[day - 1] != 0) {
+            return memory[day - 1];
+        }
 
-            if (day <= 4) {
-                int result = startNumbers[day - 1];
-                memory[day - 1] = result;
-                return result;
-            }
-
-            int prev = chooseHobbyRecursive(startNumbers, day - 1, memory);
-            int prePrePrev = chooseHobbyRecursive(startNumbers, day - 3, memory);
-
-            int result = (prev * prePrePrev) % 10 + 1;
-
+        if (day <= 4) {
+            int result = startNumbers[day - 1];
             memory[day - 1] = result;
-
             return result;
+        }
+
+        int prev = chooseHobbyRecursive(startNumbers, day - 1, memory);
+        int prePrePrev = chooseHobbyRecursive(startNumbers, day - 3, memory);
+
+        int result = (prev * prePrePrev) % 10 + 1;
+
+        memory[day - 1] = result;
+
+        return result;
 //        int prev = ??? // предыдущее значение
 //        int prePrePrev = ??? // пре-пре-предыдущее значение
 //        return prev * ...;
